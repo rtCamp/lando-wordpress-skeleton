@@ -46,7 +46,7 @@ services:
       - wp config set DISALLOW_FILE_EDIT true --raw
       - wp config set WP_ENVIRONMENT_TYPE 'local'
       - wp config set WP_REDIS_HOST rediscache
-      - | # Lets check if WordPress is not installed, then install it
+      - | # Let's check if WordPress is not installed, then install it
         if ! wp core is-installed; then
           wp core install --url=https://$LANDO_APP_NAME.$LANDO_DOMAIN \
             --title=$LANDO_APP_NAME \
