@@ -27,6 +27,7 @@ services:
         - '.lando/wp-cli.yml:/wp-cli.yml'
         - './mu-plugins:/app/wordpress/wp-content/mu-plugins'
         - './plugins:/app/wordpress/wp-content/plugins'
+        - './rt-config:/app/wordpress/wp-content/rt-config'
         - './themes:/app/wordpress/wp-content/themes'
         - './uploads:/app/wordpress/wp-content/uploads'
     build:
