@@ -62,3 +62,9 @@ services:
           wp plugin install --activate redis-cache
           wp redis enable
         fi
+tooling:
+  xdebug:
+    description: Loads Xdebug in the selected mode.
+    cmd:
+      - appserver: /app/.lando/xdebug.sh
+    user: root
