@@ -8,7 +8,7 @@ if [ "$#" -ne 1 ]; then
 else
   mode="$1"
   echo xdebug.mode = "$mode" > /usr/local/etc/php/conf.d/zzz-lando-xdebug.ini
-  if [ "$mode" = "profile" ]; then
+  if [[ $mode = *"profile"* ]]; then
     if [ ! -d "$PROFILER_OUTPUT_DIR" ]; then
       mkdir "$PROFILER_OUTPUT_DIR"
       chown $LANDO_HOST_UID:$LANDO_HOST_GID "$PROFILER_OUTPUT_DIR"
