@@ -16,3 +16,6 @@ node_modules/
 
 # Being used on local development
 /wordpress
+
+# Profiler snapshot directory
+/profiler-output
