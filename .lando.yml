@@ -21,8 +21,11 @@ services:
   appserver:
     overrides:
       environment:
+        # Make this environment variable empty or else runtime xdebug mode change will not work
+        XDEBUG_MODE: ''
         # Support debugging Drush with XDEBUG.
         PHP_IDE_CONFIG: "serverName=appserver"
+        PROFILER_OUTPUT_DIR: "profiler-output" # If changing this value, change in .gitignore also
       volumes:
         - '.lando/wp-cli.yml:/wp-cli.yml'
         - './mu-plugins:/app/wordpress/wp-content/mu-plugins'
