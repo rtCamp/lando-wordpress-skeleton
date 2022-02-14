@@ -33,6 +33,9 @@ services:
         - './rt-config:/app/wordpress/wp-content/rt-config'
         - './themes:/app/wordpress/wp-content/themes'
         - './uploads:/app/wordpress/wp-content/uploads'
+    build_as_root:
+      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+      - apt-get install -y nodejs
     build:
       - wp core download --force --skip-content
     run:
@@ -68,3 +71,7 @@ tooling:
     cmd:
       - appserver: /app/.lando/xdebug.sh
     user: root
+  node:
+    service: appserver
+  npm:
+    service: appserver
