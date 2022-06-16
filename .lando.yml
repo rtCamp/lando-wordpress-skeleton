@@ -5,7 +5,8 @@ config:
   php: 7.4
   webroot: wordpress
   database: mariadb
-  xdebug: true
+  # Keep it empty, to enable xdebug use `lando xdebug <xdebug mode>` instead
+  xdebug: ""
   config:
     php: .lando/php.ini
     database: .lando/mysql.cnf
@@ -21,8 +22,6 @@ services:
   appserver:
     overrides:
       environment:
-        # Make this environment variable empty or else runtime xdebug mode change will not work
-        XDEBUG_MODE: ''
         # Support debugging Drush with XDEBUG.
         PHP_IDE_CONFIG: "serverName=appserver"
         PROFILER_OUTPUT_DIR: "profiler-output" # If changing this value, change in .gitignore also
