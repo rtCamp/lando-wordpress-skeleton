@@ -12,6 +12,25 @@ config:
     database: .lando/mysql.cnf
     vhosts: .lando/nginx.conf
 services:
+  database:
+    volumes:
+      mariadb: { }
+    type: compose
+    creds:
+      user: wordpress
+      password: wordpress
+      database: wordpress
+    services:
+      image: mariadb:10.6.5
+      command: docker-entrypoint.sh mariadbd
+      volumes:
+        - mariadb:/var/lib/mysql
+      environment:
+        MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
+        MARIADB_DATABASE: wordpress
+        MYSQL_DATABASE: wordpress
+        MARIADB_USER: wordpress
+        MARIADB_PASSWORD: wordpress
   rediscache:
     type: redis
   mailhog:
