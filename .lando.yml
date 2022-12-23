@@ -2,7 +2,7 @@ name: lando-wordpress-skeleton
 recipe: wordpress
 config:
   via: nginx
-  php: 7.4
+  php: "8.0"
   webroot: wordpress
   database: mariadb
   # Keep it empty, to enable xdebug use `lando xdebug <xdebug mode>` instead
