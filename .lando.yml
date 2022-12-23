@@ -38,7 +38,7 @@ services:
     build:
       - wp core download --force --skip-content
     run:
-      - sleep 2 # For some reason, we have to wait at least a second till database is up.
+      - sleep 5 # For some reason, we have to wait at least a second till database is up.
       - | # Create WordPress config file and add necessary constants and custom config
         wp config create --dbhost=database --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbprefix=wp_ --force --extra-php <<PHP
         if ( file_exists( __DIR__ . '/wp-content/rt-config/rt-config.php' ) ) {
